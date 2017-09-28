@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     this.finishDate = this.myForm.value.inputFinishDate;
     this.sDate = new Date(this.startDate);
     this.fDate = new Date(this.finishDate); 
-    this.router.navigate(['/boats/available'],  {queryParams:{location: this.location, start: this.sDate, finish: this.fDate}});  
+    this.router.navigate(['/boats/available'],  {queryParams:{location: this.location, start: this.sDate, finish:this.fDate}});  
   }
 
 

@@ -43,6 +43,14 @@ export class SelectedComponent implements OnInit, OnDestroy  {
         );
   }
 
+  getYMD(t: Date){
+    let y = t.getFullYear();
+    let m = t.getMonth() + 1;
+    let d = t.getDate();
+    return d + "." + m + "." + y + "." ;
+  }
+
+
   paramsFunction(){
      this.paramsSubscription = this.route.params
         .subscribe(
@@ -61,7 +69,7 @@ export class SelectedComponent implements OnInit, OnDestroy  {
                                 this.boatService.checkReservations(this.location, this.start, this.finish);
                                 this.boatsToDisplay = this.boatService.availableBoats;
                                 this.notAvailable = this.boatService.notAvailable;
-                                this.message = 'Available sailboats on   ' + this.location + '  from   ' + this.start.toLocaleString() + '  to  ' + this.finish.toLocaleString(); 
+                                this.message = 'Available sailboats on   ' + this.location + '  from   ' + this.getYMD(this.start) + '  to  ' + this.getYMD(this.finish); 
                             }else if( this.selected == 'Corfu' || this.selected =='Cyprus' || this.selected == 'Crete'){
                                 this.boatsToDisplay = [];
                                 this.locationSelected = true;

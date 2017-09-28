@@ -1,0 +1,26 @@
+<div class="container">
+	<br>
+	<br>
+	<div class="row">
+		<div class="col md-12">
+			<h3>Locations</h3>
+			<hr>			
+		</div>
+	</div>
+	<br>
+  <div class="row">
+    <div
+       class="col-md-4 col-xl-4 col-sm-12 my-4" 
+       *ngFor=" let location of locations">
+      <div class="card" (click)="goToLocation( location.name, location.lat, location.lng)">
+        <img class="card-img-top" [src]="location.imageUrl" alt="Card image cap">
+        <div class="card-block mt-1">
+          <h4 class="card-title">{{location.name}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+

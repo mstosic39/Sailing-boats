@@ -1,0 +1,45 @@
+<agm-map
+	*ngIf = "locationSelected"
+	[latitude]="lat" [longitude]="lng">
+  	<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<div class="container">
+
+	<div *ngIf="boats.length !=0">
+		<br>
+		<br>
+		<h3>{{message}}</h3>
+		<hr>
+		<br>
+		<br>
+	
+		<div
+			*ngFor = " let boat of boatsToDisplay "
+			class="row singleBoat mb-4">
+			<div class="singleBoatData col-lg-6 col-md-6 col-sm-12">
+				<br>
+				<h3>{{boat.name}}</h3>
+				<hr>
+				<p>ID: {{boat.id}}</p>
+				<p>Location: {{boat.location}}</p>
+				<button *ngIf="selected === 'available'" class="btn btn-success mb-4">Send request</button>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 text-center ">
+				<img class="img-fluid  rounded" [src]="boat.imageUrl" alt="">
+			</div>
+			<hr>		
+		</div>
+	</div>
+
+	<div 
+		*ngIf="notAvailable"
+		class="row">
+		<div class="col">
+			<br><br>
+			<h3 class="text-center">There are no available sailboats in requsted period</h3>	
+		</div>
+	</div>
+
+</div>
+
+

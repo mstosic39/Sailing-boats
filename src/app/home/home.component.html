@@ -1,0 +1,43 @@
+        <div class="heroImage col-md-12">
+		       <div class="formWrapper col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            <h2>Rent a boat today!</h2>
+            <hr>
+            <form 
+                class="form" 
+                #f = "ngForm" 
+                (ngSubmit)="onSubmit()">
+              <div class=" form-group">
+                <label for="selectLocation">Location</label>
+                <select 
+                  ngModel 
+                  required
+                  name="selectLocation" 
+                  class="form-control" 
+                  id="selectLocation">
+                  <option value="Corfu">Corfu</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Crete">Crete</option>
+                </select>               
+              </div>    
+              <div class=" form-group">
+                <label  for="inputStartDate">From</label>
+                <div class="dateWrapper">
+                  <date-picker ngModel required name="inputStartDate" id="inputStartDate" ></date-picker>
+                </div>
+              </div>
+              <div class=" form-group">
+                <label  for="inputFinishDate">To</label>
+                <div>
+                  <date-picker ngModel required name="inputFinishDate" id="inputFinishDate"></date-picker>
+                </div>  
+              </div>
+              
+              <div class=" form-group">
+                <button 
+                  type="submit" 
+                  class="btn btn-success btn-block mt-5"
+                  [disabled] ="!f.valid">Search</button>
+              </div>
+            </form> 
+            </div>
+        </div>

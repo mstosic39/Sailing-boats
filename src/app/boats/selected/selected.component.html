@@ -8,7 +8,7 @@
 	<div *ngIf="boats.length !=0">
 		<br>
 		<br>
-		<h3>{{message}}</h3>
+		<h3>{{message}} <span>({{boatsToDisplay.length}} results) </span></h3>
 		<hr>
 		<br>
 		<br>
@@ -30,16 +30,6 @@
 			<hr>		
 		</div>
 	</div>
-
-	<div 
-		*ngIf="notAvailable"
-		class="row">
-		<div class="col">
-			<br><br>
-			<h3 class="text-center">There are no available sailboats in requsted period</h3>	
-		</div>
-	</div>
-
 </div>
 
 

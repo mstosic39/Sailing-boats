@@ -32,7 +32,6 @@ export class LocationsComponent implements OnInit {
   ];
 
   goToLocation(loc, lat, lng){
-  		console.log(loc);
   		this.router.navigate(['/boats/' + loc], {queryParams:{lat: lat, lng: lng}});
   }
 

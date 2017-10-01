@@ -17,7 +17,6 @@ export class BoatsComponent implements OnInit {
   			  ) { }
 
   ngOnInit() {
-    console.log("boats component inited");
   }
 
 }

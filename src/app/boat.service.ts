@@ -12,13 +12,14 @@ export class BoatService {
   startDate: Date;
   finishDate: Date;
   location: string;
-  notAvailable: boolean;
+ 
 
   getBoatsData(){
   		return this.http.get('https://post-and-get-6f1cc.firebaseio.com/data.json');
   }
 
   checkReservations(location, start, finish){
+    this.availableBoats = [];
     for(let i = 0; i <= this.boatsData.length - 1; i++ ){
       if(this.boatsData[i].location == location){
         let counter = 0;
@@ -40,7 +41,6 @@ export class BoatService {
         } 
         if(counter > 0){
           this.availableBoats.push(this.boatsData[i]);
-          this.notAvailable = false;
         }else{}
       }else{}
     }

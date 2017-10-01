@@ -26,7 +26,7 @@ export class SelectedComponent implements OnInit, OnDestroy  {
   start: any;
   finish: any;
   location: any;
-  notAvailable: boolean;
+
 
   locationSelected: boolean = false;
 
@@ -56,7 +56,6 @@ export class SelectedComponent implements OnInit, OnDestroy  {
         .subscribe(
             (params: Params)=>{
                             this.selected = params['selected'];
-
                             if(this.selected =='all'){
                                 this.locationSelected = false;
                                 this.boatsToDisplay = this.boats;
@@ -68,8 +67,13 @@ export class SelectedComponent implements OnInit, OnDestroy  {
                                 this.boatService.boatsData = this.boats;
                                 this.boatService.checkReservations(this.location, this.start, this.finish);
                                 this.boatsToDisplay = this.boatService.availableBoats;
-                                this.notAvailable = this.boatService.notAvailable;
-                                this.message = 'Available sailboats on   ' + this.location + '  from   ' + this.getYMD(this.start) + '  to  ' + this.getYMD(this.finish); 
+                                if(this.boatsToDisplay.length === 0){
+                                  this.message = 'No available sailboats on ' + this.location + '  from   ' + this.getYMD(this.start) + '  to  ' + this.getYMD(this.finish)
+                                }else{
+                                  this.message = 'Available sailboats on   ' + this.location + '  from   ' + this.getYMD(this.start) + '  to  ' + this.getYMD(this.finish); 
+                                }
+                                
+                                
                             }else if( this.selected == 'Corfu' || this.selected =='Cyprus' || this.selected == 'Crete'){
                                 this.boatsToDisplay = [];
                                 this.locationSelected = true;

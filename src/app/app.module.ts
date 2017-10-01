@@ -16,13 +16,14 @@ import { SelectedComponent } from './boats/selected/selected.component';
 
 import { AgmCoreModule } from '@agm/core';
 
+
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'locations', component: LocationsComponent},
   { path: 'boats', component: BoatsComponent, children : [
       {path: ':selected', component: SelectedComponent}
     ] 
-  }
+  }  
 ]  
 
 @NgModule({
